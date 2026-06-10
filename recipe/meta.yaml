@@ -20,7 +20,8 @@ requirements:
     - pip
     - python
     - wheel
-    - setuptools <69
+    # remove upper bound on setuptools to build pkg for py>312
+    - setuptools
   run:
     - python
     - lxml
