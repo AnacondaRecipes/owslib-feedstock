@@ -1,6 +1,6 @@
 
 {% set name = "OWSLib" %}
-{% set version = "0.34.1" %}
+{% set version = "0.36.0" %}
 
 package:
   name: {{ name|lower }}
@@ -13,14 +13,14 @@ source:
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  skip: True  # [py<310]
+  skip: true  # [py<312]
 
 requirements:
   host:
-    - python
     - pip
-    - setuptools
+    - python
     - wheel
+    - setuptools <69
   run:
     - python
     - lxml
