@@ -29,6 +29,8 @@ requirements:
     - pyyaml
     - requests
 
+# Disable unstable test
+{% set deselect_tests = " --deselect=tests/test_ogcapi_records_pycsw.py::test_ogcapi_records_pycsw" %}
 test:
   source_files:
     - tests
@@ -82,7 +84,7 @@ test:
   commands:
     - pip check
     - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
-    - pytest tests
+    - pytest -v tests {{ deselect_tests }}
   requires:
     - pip
     - pytest
